@@ -10,5 +10,5 @@ package modelo;
  * @author osval
  */
 public class Usuario {
-    
+    // iniciando proyecto final
 }

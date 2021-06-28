@@ -8,6 +8,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import modelo.DAOUsuario;
 import modelo.Usuario;
 import vista.FormBienvenido;
 import vista.FormLogin;
@@ -48,7 +49,7 @@ public class ControladorLogin implements ActionListener {
 
                 FormBienvenido formbien = new FormBienvenido();
 
-                ControladorBienvenido ctrb = new ControladorBienvenido(vistab);
+                ControladorBienvenido ctrb = new ControladorBienvenido(formbien);
                 ctrb.iniciarFormBienvenida();
 
             }

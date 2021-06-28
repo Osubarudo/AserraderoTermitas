@@ -10,6 +10,14 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.DAOMaquina;
+import modelo.DAOOrdenTrabajo;
+import modelo.DAOTarea;
+import modelo.DAOTrabajador;
+import modelo.Maquina;
+import modelo.OrdenTrabajo;
+import modelo.Tarea;
+import modelo.Trabajador;
 import vista.FormBienvenido;
 import vista.FormMaquina;
 import vista.FormOrdenTrabajo;
@@ -23,29 +31,29 @@ import vista.FormTrabajador;
  */
 public class ControladorBienvenido implements ActionListener {
 
-    private FormBienvenido vistabien;
+    private FormBienvenido formbien;
 
     public ControladorBienvenido(FormBienvenido vistabie) {
-        this.vistabien = vistabie;
-        this.vistabien.menuMaquina.addActionListener(this);
-        this.vistabien.menuOrdenTra.addActionListener(this);
-        this.vistabien.menuSolicitud.addActionListener(this);
-        this.vistabien.menuTrabajador.addActionListener(this);
-        this.vistabien.menuTarea.addActionListener(this);
+        this.formbien = formbien;
+        this.formbien.menuMaquina.addActionListener(this);
+        this.formbien.menuOrdenTra.addActionListener(this);
+        this.formbien.menuSolicitud.addActionListener(this);
+        this.formbien.menuTrabajador.addActionListener(this);
+        this.formbien.menuTarea.addActionListener(this);
 
     }
 
     public void iniciarFormBienvenida() {
-        vistabien.setTitle("Menu de Bienvenida");
-        vistabien.setLocationRelativeTo(null);
-        vistabien.setVisible(true);
+        formbien.setTitle("Menu de Bienvenida");
+        formbien.setLocationRelativeTo(null);
+        formbien.setVisible(true);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (vistabien.menuMaquina == e.getSource()) {
+        if (formbien.menuMaquina == e.getSource()) {
             FormMaquina formaq = new FormMaquina();
             Maquina ma = new Maquina();
             DAOMaquina daoma = new DAOMaquina();
@@ -53,7 +61,7 @@ public class ControladorBienvenido implements ActionListener {
             ctrm.iniciarFormMaquina();
         }
 
-        if (vistabien.menuOrdenTra == e.getSource()) {
+        if (formbien.menuOrdenTra == e.getSource()) {
             FormOrdenTrabajo formortra = new FormOrdenTrabajo();
             OrdenTrabajo ordtra = new OrdenTrabajo();
             DAOOrdenTrabajo daoordtra = new DAOOrdenTrabajo();
@@ -65,34 +73,34 @@ public class ControladorBienvenido implements ActionListener {
             }
         }
 
-        if (vistabien.menuSolicitud == e.getSource()) {
-            FormSolicitud formsolic = new FormSolicitud();
-            Solicitud solic = new Solicitud();
-            DAOSolicitud daosolic = new DAOSolicitud();
-            ControladorSolicitud ctrsolic = new ControladorSolicitud(formsolic, solic, daosolic);
-            try {
-                ctrsolic.iniciarFormOrdenTrabajo();
-            } catch (SQLException ex) {
-                Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//        if (vistabien.menuSolicitud == e.getSource()) {
+//            FormSolicitud formsolic = new FormSolicitud();
+//            Solicitud solic = new Solicitud();
+//            DAOSolicitud daosolic = new DAOSolicitud();
+//            ControladorSolicitud ctrsolic = new ControladorSolicitud(formsolic, solic, daosolic);
+//            try {
+//                ctrsolic.iniciarFormOrdenTrabajo();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
+//            }
 
-            if (vistabien.menuTrabajador == e.getSource()) {
+            if (formbien.menuTrabajador == e.getSource()) {
                 FormTrabajador formtrab = new FormTrabajador();
                 Trabajador tra = new Trabajador();
                 DAOTrabajador daot = new DAOTrabajador();
-                ControladorTrabajador ctrtra = new ControladorTrabajador(formtrab, daot, formtrab);
+                ControladorTrabajador ctrtra = new ControladorTrabajador(formtrab, tra, daot);
                 try {
-                    ctrtra.iniciarFormTrabajadores();
+                    ctrtra.iniciarFormulaTrabajadores();
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
 
-            if (vistabien.menuTarea == e.getSource()) {
+            if (formbien.menuTarea == e.getSource()) {
                 FormTareas formtare = new FormTareas();
-                Tareas tare = new Tareas();
-                DAOTareas daotare = new DAOTareas();
+                Tarea tare = new Tarea();
+                DAOTarea daotare = new DAOTarea();
                 ControladorTareas ctrtare = new ControladorTareas(formtare, tare, daotare);
                 try {
                     ctrtare.iniciarFormTareas();
@@ -104,4 +112,4 @@ public class ControladorBienvenido implements ActionListener {
 
         }
     }
-}
+

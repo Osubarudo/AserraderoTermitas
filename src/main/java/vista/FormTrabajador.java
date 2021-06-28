@@ -31,14 +31,14 @@ public class FormTrabajador extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         txtId = new javax.swing.JTextField();
-        txtmbre = new javax.swing.JTextField();
+        txtnombreTrabajador = new javax.swing.JTextField();
         txtApellidoPat = new javax.swing.JTextField();
-        ApellidoMat = new javax.swing.JTextField();
+        txtApellidoMat = new javax.swing.JTextField();
         txtRut = new javax.swing.JTextField();
         cbxCargo = new javax.swing.JComboBox<>();
-        btnAgregarTrabajado = new javax.swing.JButton();
-        btnModificarTrabajado = new javax.swing.JButton();
-        btnEliminarTrabajado = new javax.swing.JButton();
+        btnAgregarTrabajador = new javax.swing.JButton();
+        btnModificarTrabajador = new javax.swing.JButton();
+        btnEliminarTrabajador = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jttbTrabajador = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -63,11 +63,11 @@ public class FormTrabajador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnAgregarTrabajado.setText("Agregar");
+        btnAgregarTrabajador.setText("Agregar");
 
-        btnModificarTrabajado.setText("Modificar");
+        btnModificarTrabajador.setText("Modificar");
 
-        btnEliminarTrabajado.setText("Eliminar");
+        btnEliminarTrabajador.setText("Eliminar");
 
         jttbTrabajador.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,9 +109,9 @@ public class FormTrabajador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtRut, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtmbre)
+                            .addComponent(txtnombreTrabajador)
                             .addComponent(txtApellidoPat)
-                            .addComponent(ApellidoMat)
+                            .addComponent(txtApellidoMat)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -121,11 +121,11 @@ public class FormTrabajador extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAgregarTrabajado)
+                                .addComponent(btnAgregarTrabajador)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnModificarTrabajado)
+                                .addComponent(btnModificarTrabajador)
                                 .addGap(175, 175, 175)
-                                .addComponent(btnEliminarTrabajado))
+                                .addComponent(btnEliminarTrabajador))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(52, 52, 52))))
         );
@@ -138,7 +138,7 @@ public class FormTrabajador extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtmbre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtnombreTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -146,7 +146,7 @@ public class FormTrabajador extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ApellidoMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidoMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -160,9 +160,9 @@ public class FormTrabajador extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregarTrabajado)
-                    .addComponent(btnModificarTrabajado)
-                    .addComponent(btnEliminarTrabajado))
+                    .addComponent(btnAgregarTrabajador)
+                    .addComponent(btnModificarTrabajador)
+                    .addComponent(btnEliminarTrabajador))
                 .addGap(54, 54, 54))
         );
 
@@ -207,10 +207,9 @@ public class FormTrabajador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ApellidoMat;
-    public javax.swing.JButton btnAgregarTrabajado;
-    public javax.swing.JButton btnEliminarTrabajado;
-    public javax.swing.JButton btnModificarTrabajado;
+    public javax.swing.JButton btnAgregarTrabajador;
+    public javax.swing.JButton btnEliminarTrabajador;
+    public javax.swing.JButton btnModificarTrabajador;
     public javax.swing.JComboBox<String> cbxCargo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -223,9 +222,10 @@ public class FormTrabajador extends javax.swing.JFrame {
     public javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTable1;
     public javax.swing.JTable jttbTrabajador;
-    private javax.swing.JTextField txtApellidoPat;
-    private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtRut;
-    private javax.swing.JTextField txtmbre;
+    public javax.swing.JTextField txtApellidoMat;
+    public javax.swing.JTextField txtApellidoPat;
+    public javax.swing.JTextField txtId;
+    public javax.swing.JTextField txtRut;
+    public javax.swing.JTextField txtnombreTrabajador;
     // End of variables declaration//GEN-END:variables
 }

@@ -30,7 +30,7 @@ public class FormTareas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbTarea = new javax.swing.JTable();
-        btnAñadirtarea = new javax.swing.JButton();
+        btnAñadirTarea = new javax.swing.JButton();
         btnEliminatTarea = new javax.swing.JButton();
         btnModificarTarea = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -64,7 +64,7 @@ public class FormTareas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtbTarea);
 
-        btnAñadirtarea.setText("Añadir");
+        btnAñadirTarea.setText("Añadir");
 
         btnEliminatTarea.setText("Eliminar");
 
@@ -106,7 +106,7 @@ public class FormTareas extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(btnAñadirtarea))
+                            .addComponent(btnAñadirTarea))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -172,7 +172,7 @@ public class FormTareas extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAñadirtarea)
+                    .addComponent(btnAñadirTarea)
                     .addComponent(btnEliminatTarea)
                     .addComponent(btnModificarTarea))
                 .addGap(23, 23, 23))
@@ -219,9 +219,9 @@ public class FormTareas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAñadirtarea;
-    private javax.swing.JButton btnEliminatTarea;
-    private javax.swing.JButton btnModificarTarea;
+    public javax.swing.JButton btnAñadirTarea;
+    public javax.swing.JButton btnEliminatTarea;
+    public javax.swing.JButton btnModificarTarea;
     public javax.swing.JComboBox<String> cbxMaquina;
     public javax.swing.JComboBox<String> cbxOrdentTabajo;
     public javax.swing.JComboBox<String> cbxPrioridad;

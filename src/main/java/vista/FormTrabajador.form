@@ -78,9 +78,9 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="txtRut" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtmbre" max="32767" attributes="0"/>
+                              <Component id="txtnombreTrabajador" max="32767" attributes="0"/>
                               <Component id="txtApellidoPat" alignment="1" max="32767" attributes="0"/>
-                              <Component id="ApellidoMat" alignment="1" max="32767" attributes="0"/>
+                              <Component id="txtApellidoMat" alignment="1" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -94,11 +94,11 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="btnAgregarTrabajado" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAgregarTrabajador" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="btnModificarTrabajado" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnModificarTrabajador" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
-                                  <Component id="btnEliminarTrabajado" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEliminarTrabajador" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane2" min="-2" pref="572" max="-2" attributes="0"/>
                           </Group>
@@ -118,7 +118,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtmbre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtnombreTrabajador" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -128,7 +128,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ApellidoMat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtApellidoMat" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
@@ -145,9 +145,9 @@
                   <Component id="jScrollPane2" min="-2" pref="270" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnAgregarTrabajado" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnModificarTrabajado" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnEliminarTrabajado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAgregarTrabajador" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnModificarTrabajador" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnEliminarTrabajador" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               </Group>
@@ -156,14 +156,29 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txtId">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtmbre">
+        <Component class="javax.swing.JTextField" name="txtnombreTrabajador">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtApellidoPat">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="ApellidoMat">
+        <Component class="javax.swing.JTextField" name="txtApellidoMat">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtRut">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbxCargo">
           <Properties>
@@ -176,7 +191,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="btnAgregarTrabajado">
+        <Component class="javax.swing.JButton" name="btnAgregarTrabajador">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
@@ -184,7 +199,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="btnModificarTrabajado">
+        <Component class="javax.swing.JButton" name="btnModificarTrabajador">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
@@ -192,7 +207,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="btnEliminarTrabajado">
+        <Component class="javax.swing.JButton" name="btnEliminarTrabajador">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>

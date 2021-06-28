@@ -26,7 +26,13 @@
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE123</version>
-        </dependency>        
+        </dependency> 
+         <!-- https://mvnrepository.com/artifact/com.jtattoo/JTattoo -->
+        <dependency>
+            <groupId>com.jtattoo</groupId>
+            <artifactId>JTattoo</artifactId>
+            <version>1.6.13</version>
+        </dependency>       
     </dependencies>
     <build>
         <finalName>ASERRADERO_TERMITAS</finalName>

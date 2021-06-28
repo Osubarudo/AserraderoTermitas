@@ -47,7 +47,7 @@ public class ControladorTareas implements ActionListener, MouseListener, KeyList
         formtare.cbxOrdentTabajo.addKeyListener(this);
         formtare.cbxTipoMantencion.addKeyListener(this);
     }
-public void iniciarFormulaTrabajadores() throws SQLException {
+public void iniciarFormtareas() throws SQLException {
 
         formtare.setTitle("Formulario Trabajadores");// titulo
         formtare.setLocationRelativeTo(null);// ubicacion

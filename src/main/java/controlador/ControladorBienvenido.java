@@ -57,21 +57,21 @@ public class ControladorBienvenido implements ActionListener {
             FormMaquina formaq = new FormMaquina();
             Maquina ma = new Maquina();
             DAOMaquina daoma = new DAOMaquina();
-            ControladorMaquina ctrm = new ControladorMaquina(formaq, ma, daoma);
+            ControladorMaquina ctrm = new ControladorMaquina( ma, daoma,formaq);
             ctrm.iniciarFormMaquina();
         }
 
-        if (formbien.menuOrdenTra == e.getSource()) {
-            FormOrdenTrabajo formortra = new FormOrdenTrabajo();
-            OrdenTrabajo ordtra = new OrdenTrabajo();
-            DAOOrdenTrabajo daoordtra = new DAOOrdenTrabajo();
-            ControladorOrdenTrabajo ctrordtra = new ControladorOrdenTrabajo(formortra, ordtra, daoordtra);
-            try {
-                ctrordtra.iniciarFormOrdenTrabajo();
-            } catch (SQLException ex) {
-                Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+//        if (formbien.menuOrdenTra == e.getSource()) {
+//            FormOrdenTrabajo formortra = new FormOrdenTrabajo();
+//            OrdenTrabajo ordtra = new OrdenTrabajo();
+//            DAOOrdenTrabajo daoordtra = new DAOOrdenTrabajo();
+//            ControladorOrdenTrabajo ctrordtra = new ControladorOrdenTrabajo(ordtra, formortra, daoordtra);
+//            try {
+//                ctrordtra.iniciarFormOrdenTrabajo();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
 
 //        if (vistabien.menuSolicitud == e.getSource()) {
 //            FormSolicitud formsolic = new FormSolicitud();
@@ -88,7 +88,7 @@ public class ControladorBienvenido implements ActionListener {
                 FormTrabajador formtrab = new FormTrabajador();
                 Trabajador tra = new Trabajador();
                 DAOTrabajador daot = new DAOTrabajador();
-                ControladorTrabajador ctrtra = new ControladorTrabajador(formtrab, tra, daot);
+                ControladorTrabajador ctrtra = new ControladorTrabajador(tra, daot,formtrab);
                 try {
                     ctrtra.iniciarFormulaTrabajadores();
                 } catch (SQLException ex) {
@@ -101,9 +101,9 @@ public class ControladorBienvenido implements ActionListener {
                 FormTareas formtare = new FormTareas();
                 Tarea tare = new Tarea();
                 DAOTarea daotare = new DAOTarea();
-                ControladorTareas ctrtare = new ControladorTareas(formtare, tare, daotare);
+                ControladorTareas ctrtare = new ControladorTareas(tare, daotare, formtare);
                 try {
-                    ctrtare.iniciarFormTareas();
+                    ctrtare.iniciarFormtareas();
                 } catch (SQLException ex) {
                     Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
                 }

@@ -18,12 +18,12 @@ import vista.FormLogin;
  * @author osval
  */
 public class ControladorLogin implements ActionListener {
-    private FormLogin viewLog;
+    private FormLogin formLog;
     private Usuario modelUsu;
     private DAOUsuario modelDAOUsu;
 
     public ControladorLogin(FormLogin viewLog, Usuario modelUsu, DAOUsuario modelDAOUsu) {
-        this.viewLog = viewLog;
+        this.formLog = viewLog;
         this.modelUsu = modelUsu;
         this.modelDAOUsu = modelDAOUsu;
     }
@@ -31,18 +31,18 @@ public class ControladorLogin implements ActionListener {
     
 
     public void iniciarFormLogin() {
-        viewLog.setTitle("LOGIN");
-        viewLog.setLocationRelativeTo(null);
-        viewLog.setVisible(true);
+        formLog.setTitle("LOGIN");
+        formLog.setLocationRelativeTo(null);
+        formLog.setVisible(true);
 
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-       if (viewLog.btnIngresar == e.getSource()) {
-            modelUsu.setUsuario(viewLog.txtUsuario.getText());
+       if (formLog.btnIngresar == e.getSource()) {
+            modelUsu.setUsuario(formLog.txtUsuario.getText());
 
-            modelUsu.setClave(viewLog.txtContraseña.getText());
+            modelUsu.setClave(formLog.txtContraseña.getText());
             
             if (modelDAOUsu.validarUsuario(modelUsu)) {
                 JOptionPane.showMessageDialog(null, "Validacion de usuario exitosa");

@@ -18,6 +18,7 @@ import vista.FormLogin;
  * @author osval
  */
 public class ControladorLogin implements ActionListener {
+
     private FormLogin formLog;
     private Usuario modelUsu;
     private DAOUsuario modelDAOUsu;
@@ -28,8 +29,6 @@ public class ControladorLogin implements ActionListener {
         this.modelDAOUsu = modelDAOUsu;
         this.formLog.btnIngresar.addActionListener(this);
     }
-    
-    
 
     public void iniciarFormLogin() {
         formLog.setTitle("LOGIN");
@@ -37,15 +36,14 @@ public class ControladorLogin implements ActionListener {
         formLog.setVisible(true);
 
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-       if (formLog.btnIngresar == e.getSource()) {
-           //JOptionPane.showMessageDialog(null, "Boton Login");
-            modelUsu.setUsuario(formLog.txtUsuario.getText());
-
-            modelUsu.setClave(formLog.txtContraseña.getText());
+        if (formLog.btnIngresar == e.getSource()) {
             
+            modelUsu.setUsuario(formLog.txtUsuario.getText());
+            modelUsu.setClave(formLog.txtContraseña.getText());
+
             if (modelDAOUsu.validarUsuario(modelUsu)) {
                 JOptionPane.showMessageDialog(null, "Validacion de usuario exitosa");
 
@@ -54,12 +52,13 @@ public class ControladorLogin implements ActionListener {
                 ControladorBienvenido ctrb = new ControladorBienvenido(formbien);
                 ctrb.iniciarFormBienvenida();
 
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario o Contraseña Incorrecta");
+
             }
 
-        } else {
-            JOptionPane.showMessageDialog(null, "El Usuario No Existe");
-
         }
+
     }
-    
+
 }

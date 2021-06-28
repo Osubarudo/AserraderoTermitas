@@ -47,9 +47,10 @@ public class ControladorTareas implements ActionListener, MouseListener, KeyList
         formtare.cbxOrdentTabajo.addKeyListener(this);
         formtare.cbxTipoMantencion.addKeyListener(this);
     }
-public void iniciarFormtareas() throws SQLException {
 
-        formtare.setTitle("Formulario Trabajadores");// titulo
+    public void iniciarFormtareas() throws SQLException {
+
+        formtare.setTitle("Formulario Tareas");// titulo
         formtare.setLocationRelativeTo(null);// ubicacion
         formtare.setVisible(true); // mostrar el formulario
         formtare.jtbTarea.setModel(modelo); // muestra la tabla
@@ -58,18 +59,18 @@ public void iniciarFormtareas() throws SQLException {
         formtare.cbxPrioridad.setModel(daotare.obtenerPrioridad());
         formtare.cbxMaquina.setModel(daotare.obtenerMaquinas());
         formtare.cbxTipoTarea.setModel(daotare.obtenerTipoTarea());
-        formtare.cbxOrdentTabajo.setModel(daotare.obtenerGeneraOrdenesTrabajo());
+        formtare.cbxOrdentTabajo.setModel(daotare.obtenerOT());
         formtare.cbxTipoMantencion.setModel(daotare.obtenerTipoMantencion());
-        formtare.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //dispose , permite cerrar solo la ventana seleccionada
+        formtare.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         llenarTabla();
     }
- String[] columnas = {"id_tarea", "rut", "nombres", "apellido_paterno", "apellido_materno", "cargo_fk"};
+    String[] columnas = {"ID", "Descripción", "Duración", "Prioridad", "Máquina", "Periodo", "Tipo Tarea", "OT", "Tipo Mantención"};
     ArrayList<Object[]> datos = new ArrayList<>();
     DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-          //boton agregar
+        //boton agregar
         if (formtare.btnAñadirTarea == e.getSource()) { //detecta la pulsacion del boton agregar
 
             tare.setDescripcion(formtare.txtDescripcion.getText()); // toma el usuario ingresa en el formulario y lo guarda en el atributo nombre maquina
@@ -81,18 +82,20 @@ public void iniciarFormtareas() throws SQLException {
             tare.setOt(formtare.cbxOrdentTabajo.getSelectedItem().toString());
             tare.setTipoMantencion(formtare.cbxTipoMantencion.getSelectedItem().toString());
 
-
-           
             if (tare.validarCamposVacios()) {
-
+                if (daotare.Agregar(tare)) {
+                    JOptionPane.showMessageDialog(null, "Agregado correctamente");
+                    llenarTabla();
+                    limpiar();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al Agregar");
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "No debe dejar campos  vacios");
-
             }
-
         }
 
-         // boton modificar
+        // boton modificar
         if (formtare.btnModificarTarea == e.getSource()) {
 
             tare.setDescripcion(formtare.txtDescripcion.getText());
@@ -104,7 +107,7 @@ public void iniciarFormtareas() throws SQLException {
             tare.setOt(formtare.cbxOrdentTabajo.getSelectedItem().toString());
             tare.setTipoMantencion(formtare.cbxTipoMantencion.getSelectedItem().toString());
             tare.setIdTarea(Integer.parseInt(formtare.txtId.getText()));
-            
+
             if (daotare.Modificar(tare)) {
                 JOptionPane.showMessageDialog(null, "Registro Actualizado");
                 llenarTabla();
@@ -130,7 +133,8 @@ public void iniciarFormtareas() throws SQLException {
 
         }
     }
-        public void llenarTabla() {  //carga los datos de la bace de datos a la tabla
+
+    public void llenarTabla() {  //carga los datos de la bace de datos a la tabla
         modelo.setRowCount(0);
         datos = daotare.consultar();
 
@@ -143,19 +147,20 @@ public void iniciarFormtareas() throws SQLException {
     }
 
     public void limpiar() {
-
         formtare.txtId.setText("");
         formtare.txtDescripcion.setText("");
         formtare.txtDuracion.setText("");
         formtare.txtPeriodo.setText("");
-        
-
+        formtare.cbxMaquina.setSelectedIndex(0);
+        formtare.cbxPrioridad.setSelectedIndex(0);
+        formtare.cbxTipoMantencion.setSelectedIndex(0);
+        formtare.cbxTipoTarea.setSelectedIndex(0);
+        formtare.cbxOrdentTabajo.setSelectedIndex(0);
     }
-    
 
     @Override
     public void mouseClicked(MouseEvent e) {
-         if (e.getSource() == formtare.jtbTarea) {
+        if (e.getSource() == formtare.jtbTarea) {
             formtare.txtId.setText(String.valueOf(formtare.jtbTarea.getValueAt(formtare.jtbTarea.getSelectedRow(), 0)));
             formtare.txtDescripcion.setText(String.valueOf(formtare.jtbTarea.getValueAt(formtare.jtbTarea.getSelectedRow(), 1)));
             formtare.txtDuracion.setText(String.valueOf(formtare.jtbTarea.getValueAt(formtare.jtbTarea.getSelectedRow(), 2)));
@@ -165,113 +170,70 @@ public void iniciarFormtareas() throws SQLException {
             formtare.cbxTipoTarea.setSelectedItem(String.valueOf(formtare.jtbTarea.getValueAt(formtare.jtbTarea.getSelectedRow(), 6)));
             formtare.cbxOrdentTabajo.setSelectedItem(String.valueOf(formtare.jtbTarea.getValueAt(formtare.jtbTarea.getSelectedRow(), 7)));
             formtare.cbxTipoMantencion.setSelectedItem(String.valueOf(formtare.jtbTarea.getValueAt(formtare.jtbTarea.getSelectedRow(), 8)));
-            
+
         }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-       
+
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
-        
-         if (e.getSource() == formtare.txtDescripcion) {
-            char C = e.getKeyChar();
 
-            if (Character.isDigit(C)) {
-
-                formtare.getToolkit().beep();
-                e.consume();
-                JOptionPane.showMessageDialog(null, "Ingrese solo Letras");
-                formtare.txtDescripcion.setCursor(null); // nombre del campo
-
-            } else if ((int) e.getKeyChar() > 32 && (int) e.getKeyChar() <= 47
-                    || (int) e.getKeyChar() >= 58 && (int) e.getKeyChar() <= 64
-                    || (int) e.getKeyChar() >= 91 && (int) e.getKeyChar() <= 96
-                    || (int) e.getKeyChar() >= 123 && (int) e.getKeyChar() <= 255) {
-
-                formtare.getToolkit().beep();
-                e.consume();
-                JOptionPane.showMessageDialog(null, "Ingrese solo Letras");
-                formtare.txtDescripcion.setCursor(null); // nombre del campo
-
-            }
+        if (e.getSource() == formtare.txtDescripcion) {
 
         }
 
         if (e.getSource() == formtare.txtDuracion) {
-            char C = e.getKeyChar();
-
-            if (Character.isDigit(C)) {
-
+            char c = e.getKeyChar();
+            if (e.getKeyChar() == com.sun.glass.events.KeyEvent.VK_ENTER) {//Al presionar enter pasa el foco al siguiente campo
+                //txtPeso.requestFocus();//hay que definir a que componente pasa el foco
+            } else if (e.getKeyChar() == com.sun.glass.events.KeyEvent.VK_BACKSPACE || e.getKeyChar() == com.sun.glass.events.KeyEvent.VK_DELETE) {//lo utilizo para que no haga el sonido del beep al borrar
+                //
+            } else if (c < '0' || c > '9') {
                 formtare.getToolkit().beep();
                 e.consume();
-                JOptionPane.showMessageDialog(null, "Ingrese solo Letras");
-                formtare.txtDuracion.setCursor(null); // nombre del campo
-
-            } else if ((int) e.getKeyChar() > 32 && (int) e.getKeyChar() <= 47
-                    || (int) e.getKeyChar() >= 58 && (int) e.getKeyChar() <= 64
-                    || (int) e.getKeyChar() >= 91 && (int) e.getKeyChar() <= 96
-                    || (int) e.getKeyChar() >= 123 && (int) e.getKeyChar() <= 255) {
-
-                formtare.getToolkit().beep();
-                e.consume();
-                JOptionPane.showMessageDialog(null, "Ingrese solo Letras");
-                formtare.txtDuracion.setCursor(null); // nombre del campo
-
             }
 
         }
         if (e.getSource() == formtare.txtPeriodo) {
-            char C = e.getKeyChar();
-
-            if (Character.isDigit(C)) {
-
+            char c = e.getKeyChar();
+            if (e.getKeyChar() == com.sun.glass.events.KeyEvent.VK_ENTER) {//Al presionar enter pasa el foco al siguiente campo
+                //txtPeso.requestFocus();//hay que definir a que componente pasa el foco
+            } else if (e.getKeyChar() == com.sun.glass.events.KeyEvent.VK_BACKSPACE || e.getKeyChar() == com.sun.glass.events.KeyEvent.VK_DELETE) {//lo utilizo para que no haga el sonido del beep al borrar
+                //
+            } else if (c < '0' || c > '9') {
                 formtare.getToolkit().beep();
                 e.consume();
-                JOptionPane.showMessageDialog(null, "Ingrese solo Letras");
-                formtare.txtPeriodo.setCursor(null); // nombre del campo
-
-            } else if ((int) e.getKeyChar() > 32 && (int) e.getKeyChar() <= 47
-                    || (int) e.getKeyChar() >= 58 && (int) e.getKeyChar() <= 64
-                    || (int) e.getKeyChar() >= 91 && (int) e.getKeyChar() <= 96
-                    || (int) e.getKeyChar() >= 123 && (int) e.getKeyChar() <= 255) {
-
-                formtare.getToolkit().beep();
-                e.consume();
-                JOptionPane.showMessageDialog(null, "Ingrese solo Letras");
-                formtare.txtPeriodo.setCursor(null); // nombre del campo
-
             }
-
         }
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        
+
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        
+
     }
 
 }

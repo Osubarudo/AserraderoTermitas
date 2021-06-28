@@ -30,7 +30,7 @@ public class DAOTarea implements CRUD {
     @Override
     public boolean Agregar(Object obj) {
         ta = (Tarea) obj;
-        String sql = "INSERT INTO tareas (descripcion, duracion, prioridad, maquina_fk, periodo, tipo_tarea_fk, ot_fk, tipo_mantencion_fk) VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO tareas (descripcion, duracion, prioridad_fk, maquina_fk, periodo, tipo_tarea_fk, ot_fk, tipo_mantencion_fk) VALUES(?,?,(SELECT id_prioridad FROM prioridades WHERE nombre=?), (SELECT id_maquina FROM maquinas WHERE nombre=?),?,(SELECT id_tipo_tarea FROM tipo_tarea WHERE nombre=?),?,(SELECT id_tipo_mantencion FROM tipos_mantenciones WHERE nombre=?))";
         PreparedStatement pst;
 
         try {
@@ -64,7 +64,7 @@ public class DAOTarea implements CRUD {
     @Override
     public boolean Modificar(Object obj) {
         ta = (Tarea) obj;
-        String sql = "UPDATE tareas SET descripcion = ?, duracion = ?, prioridad_fk =(SELECT id_prioridad FROM prioridades WHERE nombre = ?), maquina_fk = (SELECT id_maquina FROM maquinas WHERE nombre = ?), periodo = ?, tipo_tarea_fk= (SELECT id_tipo_tarea FROM tipo_tarea WHERE nombre = ?), ot_fk =?, tipo_mantencion_fk=(SELECT id_tipo_mantencion FROM tipos_mantencion WHERE nombre = ?) WHERE id_tarea =?";
+        String sql = "UPDATE tareas SET descripcion = ?, duracion = ?, prioridad_fk =(SELECT id_prioridad FROM prioridades WHERE nombre = ?), maquina_fk = (SELECT id_maquina FROM maquinas WHERE nombre = ?), periodo = ?, tipo_tarea_fk= (SELECT id_tipo_tarea FROM tipo_tarea WHERE nombre = ?), ot_fk =?, tipo_mantencion_fk=(SELECT id_tipo_mantencion FROM tipos_mantenciones WHERE nombre = ?) WHERE id_tarea =?";
         Connection con;
         PreparedStatement pst;
 
@@ -101,7 +101,7 @@ public class DAOTarea implements CRUD {
     @Override
     public boolean Eliminar(Object obj) {
         ta = (Tarea) obj;
-        String sql = "DELETE FROM tareas where id_tareas=?";
+        String sql = "DELETE FROM tareas where id_tarea=?";
         Connection con;
         PreparedStatement pst;
 
@@ -128,13 +128,14 @@ public class DAOTarea implements CRUD {
 
     @Override
     public ArrayList<Object[]> consultar() {
-        String sql = "SELECT ta.id_tarea, ta.descripcion, ta.duracion, pri.nombre, ma.nombre, periodo, tt.nombre, ot_fk, tm.nombre\n"
-                + "FROM maquinas ma\n"
-                + "INNER JOIN prioridades pri ON pri.id_prioridad= ta.prioridad_fk\n"
-                + "INNER JOIN tareas ta ON ma.id_maquina= ta.maquina_fk\n"
-                + "INNER JOIN tipo_tarea tt ON tt.id_tipo_tarea= ta.tipo_tarea_fk\n"
-                + "INNER JOIN tipos_mantenciones tm ON tm.id_tipo_mantenciones=ta.tipo_mantencion_fk\n"
-                + "ORDER BY ta.id_tarea ASC";
+        String sql = "SELECT ta.id_tarea, ta.descripcion, ta.duracion, pri.nombre, ma.nombre, ta.periodo, tt.nombre, ta.ot_fk, tm.nombre \n" +
+"FROM tareas ta \n" +
+"INNER JOIN prioridades pri ON pri.id_prioridad = ta.prioridad_fk \n" +
+"INNER JOIN maquinas ma ON ma.id_maquina = ta.maquina_fk \n" +
+"INNER JOIN tipo_tarea tt ON tt.id_tipo_tarea = ta.tipo_tarea_fk \n" +
+"INNER JOIN ordenes_trabajo ot ON ot.id_ot = ta.ot_fk  \n" +
+"INNER JOIN tipos_mantenciones tm ON tm.id_tipo_mantencion = ta.tipo_mantencion_fk \n" +
+"ORDER BY ta.id_tarea ASC";
         Connection con;
         PreparedStatement pst;
         ResultSet rs;
@@ -196,41 +197,39 @@ public class DAOTarea implements CRUD {
         return listaModelo;
     }
 
-    public DefaultComboBoxModel obtenerGeneraOrdenesTrabajo() throws SQLException {
-        con = (Connection) conectar.conectar();
-        Statement st = con.createStatement();
-        DefaultComboBoxModel listaModelo = new DefaultComboBoxModel();
-        listaModelo.addElement("Seleccione quien Genera");
-        ResultSet rs = st.executeQuery("select genera from ordenes_trabajo");
-        try {
-            while (rs.next()) {
-                listaModelo.addElement(rs.getString(1));
-            }
-            rs.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Ocurrio un errror" + ex.getMessage());
-        }
-        return listaModelo;
-    }
-
-    public DefaultComboBoxModel obtenerResponsableOrdenesTrabajo() throws SQLException {
-        con = (Connection) conectar.conectar();
-        Statement st = con.createStatement();
-        DefaultComboBoxModel listaModelo = new DefaultComboBoxModel();
-        listaModelo.addElement("Seleccione Responsable");
-        ResultSet rs = st.executeQuery("select responsable from ordenes_trabajo");
-        try {
-            while (rs.next()) {
-                listaModelo.addElement(rs.getString(1));
-            }
-            rs.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Ocurrio un errror" + ex.getMessage());
-        }
-        return listaModelo;
-    }
-    
-        public DefaultComboBoxModel obtenerTipoMantencion() throws SQLException {
+//    public DefaultComboBoxModel obtenerGeneraOrdenesTrabajo() throws SQLException {
+//        con = (Connection) conectar.conectar();
+//        Statement st = con.createStatement();
+//        DefaultComboBoxModel listaModelo = new DefaultComboBoxModel();
+//        listaModelo.addElement("Seleccione quien Genera");
+//        ResultSet rs = st.executeQuery("select genera from ordenes_trabajo");
+//        try {
+//            while (rs.next()) {
+//                listaModelo.addElement(rs.getString(1));
+//            }
+//            rs.close();
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Ocurrio un errror" + ex.getMessage());
+//        }
+//        return listaModelo;
+//    }
+//    public DefaultComboBoxModel obtenerResponsableOrdenesTrabajo() throws SQLException {
+//        con = (Connection) conectar.conectar();
+//        Statement st = con.createStatement();
+//        DefaultComboBoxModel listaModelo = new DefaultComboBoxModel();
+//        listaModelo.addElement("Seleccione Responsable");
+//        ResultSet rs = st.executeQuery("select responsable from ordenes_trabajo");
+//        try {
+//            while (rs.next()) {
+//                listaModelo.addElement(rs.getString(1));
+//            }
+//            rs.close();
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Ocurrio un errror" + ex.getMessage());
+//        }
+//        return listaModelo;
+//    }
+    public DefaultComboBoxModel obtenerTipoMantencion() throws SQLException {
         con = (Connection) conectar.conectar();
         Statement st = con.createStatement();
         DefaultComboBoxModel listaModelo = new DefaultComboBoxModel();
@@ -246,12 +245,13 @@ public class DAOTarea implements CRUD {
         }
         return listaModelo;
     }
-        public DefaultComboBoxModel obtenerPrioridad() throws SQLException {
+
+    public DefaultComboBoxModel obtenerPrioridad() throws SQLException {
         con = (Connection) conectar.conectar();
         Statement st = con.createStatement();
         DefaultComboBoxModel listaModelo = new DefaultComboBoxModel();
         listaModelo.addElement("Seleccione Prioridad");
-        ResultSet rs = st.executeQuery("select nombre from tipos_prioridades");
+        ResultSet rs = st.executeQuery("select nombre from prioridades");
         try {
             while (rs.next()) {
                 listaModelo.addElement(rs.getString(1));
@@ -260,6 +260,23 @@ public class DAOTarea implements CRUD {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ocurrio un errror" + ex.getMessage());
         }
-        return listaModelo;   
+        return listaModelo;
+    }
+
+    public DefaultComboBoxModel obtenerOT() throws SQLException {
+        con = (Connection) conectar.conectar();
+        Statement st = con.createStatement();
+        DefaultComboBoxModel listaModelo = new DefaultComboBoxModel();
+        listaModelo.addElement("Seleccione OT");
+        ResultSet rs = st.executeQuery("select id_ot from ordenes_trabajo");
+        try {
+            while (rs.next()) {
+                listaModelo.addElement(rs.getString(1));
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ocurrio un errror" + ex.getMessage());
+        }
+        return listaModelo;
     }
 }

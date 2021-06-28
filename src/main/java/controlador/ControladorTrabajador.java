@@ -70,8 +70,7 @@ public class ControladorTrabajador implements ActionListener, MouseListener, Key
             tra.setPaterno(formtra.txtApellidoPat.getText());
             tra.setMaterno(formtra.txtApellidoMat.getText());
             tra.setCargos(formtra.cbxCargo.getSelectedItem().toString());
-
-
+            
             if (tra.validarRut(formtra.txtRut.getText())) {
                 if (daot.Agregar(tra)) { // se agraga el objaeto maquina "ma"
                     JOptionPane.showMessageDialog(null, "agregado exitoso");
@@ -151,6 +150,7 @@ public class ControladorTrabajador implements ActionListener, MouseListener, Key
         formtra.txtnombreTrabajador.setText("");
         formtra.txtApellidoPat.setText("");
         formtra.txtApellidoMat.setText("");
+        formtra.cbxCargo.setSelectedIndex(0);
 
     }
 

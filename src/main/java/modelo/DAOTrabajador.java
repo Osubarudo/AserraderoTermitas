@@ -30,7 +30,7 @@ public class DAOTrabajador implements CRUD {
     @Override
     public boolean Agregar(Object obj) {
         tra = (Trabajador) obj;
-        String sql = "INSERT INTO trabajadores (rut, nombres, paterno, materno, cargos_fk) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO trabajadores (rut, nombres, apellido_paterno, apellido_materno, cargo_fk) VALUES(?,?,?,?,(SELECT id_cargo FROM cargos WHERE nombre=?))";
         PreparedStatement pst;
 
         try {
@@ -62,7 +62,7 @@ public class DAOTrabajador implements CRUD {
     @Override
     public boolean Modificar(Object obj) {
         tra = (Trabajador) obj;
-        String sql = "UPDATE trabajadores  SET rut = ?, nombres = ?, paterno=?, materno=?, cargos_fk=(SELECT id_cargo FROM cargos WHERE nombre = ?) WHERE id_trabajadores =?";
+        String sql = "UPDATE trabajadores  SET rut = ?, nombres = ?, apellido_paterno=?, apellido_materno=?, cargo_fk=(SELECT id_cargo FROM cargos WHERE nombre = ?) WHERE id_trabajador =?";
         Connection con;
         PreparedStatement pst;
 
@@ -74,6 +74,7 @@ public class DAOTrabajador implements CRUD {
             pst.setString(3, tra.getPaterno());
             pst.setString(4, tra.getMaterno());
             pst.setString(5, tra.getCargos());
+            pst.setInt(6, tra.getIdTrabajador());
 
             int filas = pst.executeUpdate();
             if (filas > 0) {
@@ -95,7 +96,7 @@ public class DAOTrabajador implements CRUD {
     @Override
     public boolean Eliminar(Object obj) {
         tra = (Trabajador) obj;
-        String sql = "DELETE FROM trabajadores where id_trabajadores=?";
+        String sql = "DELETE FROM trabajadores where id_trabajador=?";
         Connection con;
         PreparedStatement pst;
 
@@ -122,7 +123,7 @@ public class DAOTrabajador implements CRUD {
 
     @Override
     public ArrayList<Object[]> consultar() {
-        String sql = "SELECT tra.id_trabajador, tra.rut, tra.nombres, tra.paterno, tra.materno, car.nombre\n"
+        String sql = "SELECT tra.id_trabajador, tra.rut, tra.nombres, tra.apellido_paterno, tra.apellido_materno, car.nombre\n"
                 + "FROM cargos car\n"
                 + "INNER JOIN trabajadores tra ON car.id_cargo=tra.cargo_fk\n"
                 + "ORDER BY tra.id_trabajador ASC";
@@ -152,8 +153,8 @@ public class DAOTrabajador implements CRUD {
         }
         return datos;
     }
-    
-            public DefaultComboBoxModel obtenerCargo() throws SQLException {
+
+    public DefaultComboBoxModel obtenerCargo() throws SQLException {
         con = (Connection) conectar.conectar();
         Statement st = con.createStatement();
         DefaultComboBoxModel listaModelo = new DefaultComboBoxModel();
@@ -169,5 +170,5 @@ public class DAOTrabajador implements CRUD {
         }
         return listaModelo;
     }
-    
+
 }

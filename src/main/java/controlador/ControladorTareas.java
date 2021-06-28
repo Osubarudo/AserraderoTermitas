@@ -55,7 +55,7 @@ public void iniciarFormtareas() throws SQLException {
         formtare.jtbTarea.setModel(modelo); // muestra la tabla
         formtare.txtId.setEnabled(false);//bloquea el campo "txtIdMaquina"
         formtare.jtbTarea.addMouseListener(this);
-       // formtare.cbxPrioridad.setModel(daotare.());
+        formtare.cbxPrioridad.setModel(daotare.obtenerPrioridad());
         formtare.cbxMaquina.setModel(daotare.obtenerMaquinas());
         formtare.cbxTipoTarea.setModel(daotare.obtenerTipoTarea());
         formtare.cbxOrdentTabajo.setModel(daotare.obtenerGeneraOrdenesTrabajo());

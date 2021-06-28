@@ -20,7 +20,7 @@ public class Conexion {
     
     private static final String URL = "jdbc:mysql://localhost/aserradero";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "osvaldo81";
     
     private Conexion(){};
     

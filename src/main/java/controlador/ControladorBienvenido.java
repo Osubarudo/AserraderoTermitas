@@ -33,7 +33,7 @@ public class ControladorBienvenido implements ActionListener {
 
     private FormBienvenido formbien;
 
-    public ControladorBienvenido(FormBienvenido vistabie) {
+    public ControladorBienvenido(FormBienvenido formbien) {
         this.formbien = formbien;
         this.formbien.menuMaquina.addActionListener(this);
         this.formbien.menuOrdenTra.addActionListener(this);

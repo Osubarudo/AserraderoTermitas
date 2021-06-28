@@ -9,51 +9,51 @@
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Opciones"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="menuMaquina">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Maquina"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="menuOrdenTra">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Orden de Trabajo"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="menuSolicitud">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Solicitud"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="menuTrabajador">
+            <MenuItem class="javax.swing.JMenuItem" name="menuTrabajador">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Trabajador"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="menuTarea">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuMaquina">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Tarea"/>
+                <Property name="text" type="java.lang.String" value="Maquina"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
-            </Menu>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuTarea">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tareas"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuOrdenTra">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ordenes de Trabajo"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuSolicitud">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Solicitud"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>

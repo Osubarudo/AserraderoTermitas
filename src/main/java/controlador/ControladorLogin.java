@@ -26,6 +26,7 @@ public class ControladorLogin implements ActionListener {
         this.formLog = viewLog;
         this.modelUsu = modelUsu;
         this.modelDAOUsu = modelDAOUsu;
+        this.formLog.btnIngresar.addActionListener(this);
     }
     
     
@@ -40,6 +41,7 @@ public class ControladorLogin implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
        if (formLog.btnIngresar == e.getSource()) {
+           //JOptionPane.showMessageDialog(null, "Boton Login");
             modelUsu.setUsuario(formLog.txtUsuario.getText());
 
             modelUsu.setClave(formLog.txtContraseña.getText());

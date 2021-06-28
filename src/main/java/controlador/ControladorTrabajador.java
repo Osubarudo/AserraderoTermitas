@@ -30,7 +30,7 @@ public class ControladorTrabajador implements ActionListener, MouseListener, Key
     private DAOTrabajador daot;
     private FormTrabajador formtra;
 
-    public ControladorTrabajador(Trabajador tra, DAOTrabajador daot, FormTrabajador vistat) {
+    public ControladorTrabajador(Trabajador tra, DAOTrabajador daot, FormTrabajador formtra) {
         this.tra = tra;
         this.daot = daot;
         this.formtra = formtra;

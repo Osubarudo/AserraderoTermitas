@@ -32,12 +32,12 @@ public class FormBienvenido extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuArchivo = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        menuMaquina = new javax.swing.JMenu();
-        menuOrdenTra = new javax.swing.JMenu();
-        menuSolicitud = new javax.swing.JMenu();
-        menuTrabajador = new javax.swing.JMenu();
-        menuTarea = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        menuTrabajador = new javax.swing.JMenuItem();
+        menuMaquina = new javax.swing.JMenuItem();
+        menuTarea = new javax.swing.JMenuItem();
+        menuOrdenTra = new javax.swing.JMenuItem();
+        menuSolicitud = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,24 +71,24 @@ public class FormBienvenido extends javax.swing.JFrame {
         menuArchivo.setText("Archivo");
         jMenuBar1.add(menuArchivo);
 
-        jMenu1.setText("Opciones");
-
-        menuMaquina.setText("Maquina");
-        jMenu1.add(menuMaquina);
-
-        menuOrdenTra.setText("Orden de Trabajo");
-        jMenu1.add(menuOrdenTra);
-
-        menuSolicitud.setText("Solicitud");
-        jMenu1.add(menuSolicitud);
+        jMenu2.setText("Opciones");
 
         menuTrabajador.setText("Trabajador");
-        jMenu1.add(menuTrabajador);
+        jMenu2.add(menuTrabajador);
 
-        menuTarea.setText("Tarea");
-        jMenu1.add(menuTarea);
+        menuMaquina.setText("Maquina");
+        jMenu2.add(menuMaquina);
 
-        jMenuBar1.add(jMenu1);
+        menuTarea.setText("Tareas");
+        jMenu2.add(menuTarea);
+
+        menuOrdenTra.setText("Ordenes de Trabajo");
+        jMenu2.add(menuOrdenTra);
+
+        menuSolicitud.setText("Solicitud");
+        jMenu2.add(menuSolicitud);
+
+        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -134,14 +134,14 @@ public class FormBienvenido extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu menuArchivo;
-    public javax.swing.JMenu menuMaquina;
-    public javax.swing.JMenu menuOrdenTra;
-    public javax.swing.JMenu menuSolicitud;
-    public javax.swing.JMenu menuTarea;
-    public javax.swing.JMenu menuTrabajador;
+    public javax.swing.JMenuItem menuMaquina;
+    public javax.swing.JMenuItem menuOrdenTra;
+    public javax.swing.JMenuItem menuSolicitud;
+    public javax.swing.JMenuItem menuTarea;
+    public javax.swing.JMenuItem menuTrabajador;
     // End of variables declaration//GEN-END:variables
 }

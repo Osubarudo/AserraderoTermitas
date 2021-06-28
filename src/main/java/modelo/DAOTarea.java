@@ -246,4 +246,22 @@ public class DAOTarea implements CRUD {
         }
         return listaModelo;
     }
+        
+        public DefaultComboBoxModel obtenerPrioridad() throws SQLException {
+        con = (Connection) conectar.conectar();
+        Statement st = con.createStatement();
+        DefaultComboBoxModel listaModelo = new DefaultComboBoxModel();
+        listaModelo.addElement("Seleccione Prioridad");
+        ResultSet rs = st.executeQuery("select nombre from tipos_prioridades");
+        try {
+            while (rs.next()) {
+                listaModelo.addElement(rs.getString(1));
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ocurrio un errror" + ex.getMessage());
+        }
+        return listaModelo;   
+    }
 }
+

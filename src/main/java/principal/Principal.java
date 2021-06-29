@@ -5,6 +5,7 @@
  */
 package principal;
 
+import com.jtattoo.plaf.acryl.AcrylLookAndFeel;
 import com.jtattoo.plaf.bernstein.BernsteinLookAndFeel;
 import controlador.ControladorLogin;
 import javax.swing.UIManager;
@@ -23,7 +24,7 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws UnsupportedLookAndFeelException {
-        UIManager.setLookAndFeel(new BernsteinLookAndFeel());
+        UIManager.setLookAndFeel(new AcrylLookAndFeel());
         FormLogin log = new FormLogin();
         Usuario usu = new Usuario();
         DAOUsuario dusu = new DAOUsuario();

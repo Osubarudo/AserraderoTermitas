@@ -122,13 +122,13 @@ public class DAOOrdenTrabajo implements CRUD {
 
     @Override
     public ArrayList<Object[]> consultar() {
-//        String sql = "SELECT ot.id_ot, ot.notas, tra.apellido_paterno, tra.apellido_paterno\n"
-//                + "FROM trabajadores tra\n"
-//                + "INNER JOIN ordenes_trabajo ot ON tra.id_trabajador= ot.genera_fk\n"
-//                + "INNER JOIN ordenes_trabajo ON tra.id_trabajador= ot.responsable_fk\n"
-//                + "ORDER BY ot.id_ot ASC";
+        String sql = "SELECT ot.id_ot, ot.notas, tra.apellido_paterno, tr.apellido_paterno \n" +
+"FROM ordenes_trabajo ot \n" +
+"INNER JOIN trabajadores tra ON tra.id_trabajador = ot.genera_fk \n" +
+"INNER JOIN trabajadores tr ON tr.id_trabajador = ot.responsable_fk \n" +
+"ORDER BY ot.id_ot DESC";
 
-        String sql = "SELECT id_ot, notas, genera_fk, responsable_fk FROM ordenes_trabajo";
+        //String sql = "SELECT id_ot, notas, genera_fk, responsable_fk FROM ordenes_trabajo";
         Connection con;
         PreparedStatement pst;
         ResultSet rs;

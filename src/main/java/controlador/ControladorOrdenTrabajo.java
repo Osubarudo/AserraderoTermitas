@@ -136,27 +136,25 @@ public class ControladorOrdenTrabajo implements ActionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        //JOptionPane.showMessageDialog(null, "Click en la tabla");
+        
         vista.txtIdOt.setText(String.valueOf(vista.jtbOrdenTrabajo.getValueAt(vista.jtbOrdenTrabajo.getSelectedRow(), 0)));
         vista.txtNota.setText(String.valueOf(vista.jtbOrdenTrabajo.getValueAt(vista.jtbOrdenTrabajo.getSelectedRow(), 1)));
-        //vista.cbxGeneradoOt.setSelectedItem(String.valueOf(vista.jtbOrdenTrabajo.getValueAt(vista.jtbOrdenTrabajo.getSelectedRow(), 2)));
-        //vista.cbxResponsableOt.setSelectedItem(String.valueOf(vista.jtbOrdenTrabajo.getValueAt(vista.jtbOrdenTrabajo.getSelectedRow(), 3)));
+        vista.cbxGeneradoOt.setSelectedItem(String.valueOf(vista.jtbOrdenTrabajo.getValueAt(vista.jtbOrdenTrabajo.getSelectedRow(), 2)));
+        vista.cbxResponsableOt.setSelectedItem(String.valueOf(vista.jtbOrdenTrabajo.getValueAt(vista.jtbOrdenTrabajo.getSelectedRow(), 3)));
         
-        String idGen = String.valueOf(vista.jtbOrdenTrabajo.getValueAt(vista.jtbOrdenTrabajo.getSelectedRow(), 2));
-        try {
-            vista.cbxGeneradoOt.setSelectedItem(dao.enviarACombo(idGen));
-        } catch (SQLException ex) {
-            Logger.getLogger(ControladorOrdenTrabajo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        String idRes = String.valueOf(vista.jtbOrdenTrabajo.getValueAt(vista.jtbOrdenTrabajo.getSelectedRow(), 3));
-        try {
-            vista.cbxResponsableOt.setSelectedItem(dao.enviarACombo(idRes));
-        } catch (SQLException ex) {
-            Logger.getLogger(ControladorOrdenTrabajo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
+//        String idGen = String.valueOf(vista.jtbOrdenTrabajo.getValueAt(vista.jtbOrdenTrabajo.getSelectedRow(), 2));
+//        try {
+//            vista.cbxGeneradoOt.setSelectedItem(dao.enviarACombo(idGen));
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ControladorOrdenTrabajo.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        String idRes = String.valueOf(vista.jtbOrdenTrabajo.getValueAt(vista.jtbOrdenTrabajo.getSelectedRow(), 3));
+//        try {
+//            vista.cbxResponsableOt.setSelectedItem(dao.enviarACombo(idRes));
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ControladorOrdenTrabajo.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
     }
 

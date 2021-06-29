@@ -57,21 +57,21 @@ public class ControladorBienvenido implements ActionListener {
             FormMaquina formaq = new FormMaquina();
             Maquina ma = new Maquina();
             DAOMaquina daoma = new DAOMaquina();
-            ControladorMaquina ctrm = new ControladorMaquina( ma, daoma,formaq);
+            ControladorMaquina ctrm = new ControladorMaquina(ma, daoma, formaq);
             ctrm.iniciarFormMaquina();
         }
 
-//        if (formbien.menuOrdenTra == e.getSource()) {
-//            FormOrdenTrabajo formortra = new FormOrdenTrabajo();
-//            OrdenTrabajo ordtra = new OrdenTrabajo();
-//            DAOOrdenTrabajo daoordtra = new DAOOrdenTrabajo();
-//            ControladorOrdenTrabajo ctrordtra = new ControladorOrdenTrabajo(ordtra, formortra, daoordtra);
-//            try {
-//                ctrordtra.iniciarFormOrdenTrabajo();
-//            } catch (SQLException ex) {
-//                Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
+        if (formbien.menuOrdenTra == e.getSource()) {
+            FormOrdenTrabajo fot = new FormOrdenTrabajo();
+            OrdenTrabajo ot = new OrdenTrabajo();
+            DAOOrdenTrabajo dao = new DAOOrdenTrabajo();
+            ControladorOrdenTrabajo ctrl = new ControladorOrdenTrabajo(fot, ot, dao);
+            try {
+                ctrl.inciarForm();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
 //        if (vistabien.menuSolicitud == e.getSource()) {
 //            FormSolicitud formsolic = new FormSolicitud();
@@ -83,33 +83,31 @@ public class ControladorBienvenido implements ActionListener {
 //            } catch (SQLException ex) {
 //                Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
 //            }
-
-            if (formbien.menuTrabajador == e.getSource()) {
-                FormTrabajador formtrab = new FormTrabajador();
-                Trabajador tra = new Trabajador();
-                DAOTrabajador daot = new DAOTrabajador();
-                ControladorTrabajador ctrtra = new ControladorTrabajador(tra, daot,formtrab);
-                try {
-                    ctrtra.iniciarFormulaTrabajadores();
-                } catch (SQLException ex) {
-                    Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
-
-            if (formbien.menuTarea == e.getSource()) {
-                FormTareas formtare = new FormTareas();
-                Tarea tare = new Tarea();
-                DAOTarea daotare = new DAOTarea();
-                ControladorTareas ctrtare = new ControladorTareas(tare, daotare, formtare);
-                try {
-                    ctrtare.iniciarFormtareas();
-                } catch (SQLException ex) {
-                    Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
+        if (formbien.menuTrabajador == e.getSource()) {
+            FormTrabajador formtrab = new FormTrabajador();
+            Trabajador tra = new Trabajador();
+            DAOTrabajador daot = new DAOTrabajador();
+            ControladorTrabajador ctrtra = new ControladorTrabajador(tra, daot, formtrab);
+            try {
+                ctrtra.iniciarFormulaTrabajadores();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
-    }
 
+        if (formbien.menuTarea == e.getSource()) {
+            FormTareas formtare = new FormTareas();
+            Tarea tare = new Tarea();
+            DAOTarea daotare = new DAOTarea();
+            ControladorTareas ctrtare = new ControladorTareas(tare, daotare, formtare);
+            try {
+                ctrtare.iniciarFormtareas();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorBienvenido.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+    }
+}

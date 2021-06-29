@@ -115,7 +115,7 @@ public class ControladorTareas implements ActionListener, MouseListener, KeyList
 
             } else {
                 JOptionPane.showMessageDialog(null, "Error al Modificar");
-                limpiar();
+                //limpiar();
             }
         }
         //boton eliminar

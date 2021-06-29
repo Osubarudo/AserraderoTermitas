@@ -31,45 +31,46 @@ public class FormBienvenido extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuArchivo = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         menuTrabajador = new javax.swing.JMenuItem();
         menuMaquina = new javax.swing.JMenuItem();
         menuTarea = new javax.swing.JMenuItem();
         menuOrdenTra = new javax.swing.JMenuItem();
-        menuSolicitud = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel1.setText("Bienvenidos a la plataforma de Aserradero  LeatherFace");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 153, 204));
+        jLabel2.setText("Selecione la opcion para iniciar el proceso");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(328, 328, 328)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(222, 222, 222))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(157, 157, 157)
+                .addGap(142, 142, 142)
                 .addComponent(jLabel1)
-                .addGap(50, 50, 50)
-                .addComponent(jLabel2)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
-
-        menuArchivo.setText("Archivo");
-        jMenuBar1.add(menuArchivo);
 
         jMenu2.setText("Opciones");
 
@@ -84,9 +85,6 @@ public class FormBienvenido extends javax.swing.JFrame {
 
         menuOrdenTra.setText("Ordenes de Trabajo");
         jMenu2.add(menuOrdenTra);
-
-        menuSolicitud.setText("Solicitud");
-        jMenu2.add(menuSolicitud);
 
         jMenuBar1.add(jMenu2);
 
@@ -137,10 +135,8 @@ public class FormBienvenido extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenu menuArchivo;
     public javax.swing.JMenuItem menuMaquina;
     public javax.swing.JMenuItem menuOrdenTra;
-    public javax.swing.JMenuItem menuSolicitud;
     public javax.swing.JMenuItem menuTarea;
     public javax.swing.JMenuItem menuTrabajador;
     // End of variables declaration//GEN-END:variables
